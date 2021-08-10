@@ -16,7 +16,13 @@
     "require": {
         "php": ">=7.3"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
     "autoload": {
         "psr-0": { "Dm": "src/" }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
