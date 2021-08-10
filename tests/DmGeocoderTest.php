@@ -1,6 +1,8 @@
 <?php
 
-class EmployeeTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class EmployeeTest extends TestCase
 {
 	
 	public function testAddressオブジェクトのプロパティ()
