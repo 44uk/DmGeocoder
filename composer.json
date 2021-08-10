@@ -4,7 +4,6 @@
     "description": "Geocoding library.",
     "keywords": ["geocoding","geocoder"],
     "homepage": "https://github.com/demouth/DmGeocoder",
-    "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
