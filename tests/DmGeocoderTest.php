@@ -13,14 +13,14 @@ class EmployeeTest extends TestCase
 		$this->assertSame($address->prefectureCode,47);
 		$this->assertSame($address->municipalityCode,47382);
 		$this->assertSame($address->localCode,473820001000);
-		$this->assertSame($address->lat,24.468119);
-		$this->assertSame($address->lng,123.004341);
+		$this->assertSame($address->lat,24.455925);
+		$this->assertSame($address->lng,122.987678);
 		$this->assertEquals($address->prefectureName,'沖縄県');
 		$this->assertEquals($address->municipalityName,'八重山郡与那国町');
-		$this->assertEquals($address->localName,'与那国');
+		$this->assertEquals($address->localName,'字与那国');
 		$this->assertEquals(count($addresses), 1);
 	}
-	
+
 	public function testCSVの一番最初と一番最後の行()
 	{
 		//一番最初
@@ -28,9 +28,9 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'北海道');
 		$this->assertEquals($address->municipalityName,'札幌市中央区');
-		$this->assertEquals($address->localName,'旭ヶ丘一丁目');
-		$this->assertEquals(count($addresses), 1);
-		
+		$this->assertEquals($address->localName,'旭ケ丘一丁目');
+		$this->assertEquals(count($addresses), 6);
+
 		//一番最後
 		$addresses = Dm_Geocoder::geocode('北海道目梨郡羅臼町礼文町');
 		$address = $addresses[0];
@@ -155,11 +155,11 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'東京都');
 		$this->assertEquals($address->municipalityName,'港区');
-		$this->assertEquals($address->localName,'芝公園一丁目');
-		$this->assertEquals($addresses[1]->localName,'芝公園二丁目');
-		$this->assertEquals($addresses[2]->localName,'芝公園三丁目');
-		$this->assertEquals($addresses[3]->localName,'芝公園四丁目');
-		
+		$this->assertEquals($address->localName,'芝公園四丁目');
+		$this->assertEquals($addresses[1]->localName,'芝公園三丁目');
+		$this->assertEquals($addresses[2]->localName,'芝公園一丁目');
+		$this->assertEquals($addresses[3]->localName,'芝公園二丁目');
+
 		$this->assertEquals(count($addresses), 4);
 	}
 	
@@ -167,8 +167,8 @@ class EmployeeTest extends TestCase
 	public function test都道府県名のみ()
 	{
 		$addresses = Dm_Geocoder::geocode('愛媛県');
-		//県名が同じで市区町村名が違うレコードが2439件ある
-		$this->assertEquals(count($addresses), 2439);
+		//県名が同じで市区町村名が違うレコードが2407件ある
+		$this->assertEquals(count($addresses), 2407);
 	}
 	
 	public function test都道府県名と市区町村名()
@@ -200,7 +200,7 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'岩手県');
 		$this->assertEquals($address->municipalityName,'盛岡市');
-		$this->assertEquals($address->localName,'玉山区玉山字大平');
+		$this->assertEquals($address->localName,'玉山');
 		//宮城県
 		$addresses = Dm_Geocoder::geocode('宮城県仙台市青葉区吉成台二丁目');
 		$address = $addresses[0];
@@ -212,7 +212,7 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'下浜名ケ沢字カノエツカ');
+		$this->assertEquals($address->localName,'下浜名ケ沢');
 		//山形県
 		$addresses = Dm_Geocoder::geocode('山形県山形市印役町四丁目');
 		$address = $addresses[0];
@@ -224,7 +224,7 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'福島県');
 		$this->assertEquals($address->municipalityName,'福島市');
-		$this->assertEquals($address->localName,'飯野町青木字登木戸');
+		$this->assertEquals($address->localName,'飯野町青木');
 		//茨城県
 		$addresses = Dm_Geocoder::geocode('茨城県水戸市松本町');
 		$address = $addresses[0];
@@ -308,7 +308,7 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'岐阜県');
 		$this->assertEquals($address->municipalityName,'岐阜市');
-		$this->assertEquals($address->localName,'千畳敷');
+		$this->assertEquals($address->localName,'千畳敷下');
 		//静岡県
 		$addresses = Dm_Geocoder::geocode('静岡県静岡市葵区美川町');
 		$address = $addresses[0];
@@ -452,7 +452,7 @@ class EmployeeTest extends TestCase
 		$address = $addresses[0];
 		$this->assertEquals($address->prefectureName,'宮崎県');
 		$this->assertEquals($address->municipalityName,'宮崎市');
-		$this->assertEquals($address->localName,'源藤町西田');
+		$this->assertEquals($address->localName,'源藤町');
 		//鹿児島県
 		$addresses = Dm_Geocoder::geocode('鹿児島県枕崎市大塚北町');
 		$address = $addresses[0];
@@ -484,46 +484,46 @@ class EmployeeTest extends TestCase
 		$address = $addresses[2];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'寺内字通穴');
-		
+		$this->assertEquals($address->localName,'将軍野東四丁目');
+
 		$address = $addresses[3];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'将軍野東四丁目');
-		
+		$this->assertEquals($address->localName,'飯島新町一丁目');
+
 		$address = $addresses[4];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'寺内字将軍野');
-		
+		$this->assertEquals($address->localName,'将軍野東三丁目');
+
 		$address = $addresses[5];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'飯島新町一丁目');
-		
+		$this->assertEquals($address->localName,'将軍野桂町');
+
 		$address = $addresses[6];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'将軍野東三丁目');
-		
+		$this->assertEquals($address->localName,'飯島西袋一丁目');
+
 		$address = $addresses[7];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'飯島字大崩');
-		
+		$this->assertEquals($address->localName,'土崎港北二丁目');
+
 		$address = $addresses[8];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'飯島字大袋');
-		
+		$this->assertEquals($address->localName,'飯島新町二丁目');
+
 		$address = $addresses[9];
 		$this->assertEquals($address->prefectureName,'秋田県');
 		$this->assertEquals($address->municipalityName,'秋田市');
-		$this->assertEquals($address->localName,'飯島字長野');
-		
+		$this->assertEquals($address->localName,'将軍野東一丁目');
+
 		$this->assertEquals(count($addresses), 10);
 	}
-	
+
 	public function test逆ジオコーディング件数指定()
 	{
 		$addresses = Dm_Geocoder::reverseGeocode(35.6882074,139.7001416, 3);
