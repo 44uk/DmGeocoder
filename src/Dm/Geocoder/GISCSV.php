@@ -33,8 +33,8 @@ class Dm_Geocoder_GISCSV
 	 * @example 2012
 	 * @var int
 	 */
-	public static $year = 2012;
-	
+	public static $year = 2020;
+
 	/**
 	 * コンストラクタ
 	 * @param string $prefectureCode 都道府県コード
