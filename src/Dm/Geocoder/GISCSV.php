@@ -33,7 +33,7 @@ class Dm_Geocoder_GISCSV
 	 * @example 2012
 	 * @var int
 	 */
-	public static $year = 2020;
+	public static $year = 2021;
 
 	/**
 	 * コンストラクタ
