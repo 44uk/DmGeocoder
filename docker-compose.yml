@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  phpunit:
+    build: ./docker/phpunit
+    container_name: phpunit
+    volumes:
+      - .:/workspace:cached
+      - vendor-volume:/workspace/vendor
+    command: bash -c 'composer --prefer-dist --no-progress install && composer test'
+volumes:
+  vendor-volume:
